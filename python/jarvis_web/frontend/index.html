@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jarvis AI Assistant</title>
+</head>
+<body>
+  <h1>Ask Jarvis</h1>
+  <input type="text" id="question" placeholder="Type your question">
+  <button onclick="askJarvis()">Ask</button>
+  <p><strong>Reply:</strong> <span id="answer"></span></p>
+
+  <script>
+    async function askJarvis() {
+      const q = document.getElementById("question").value;
+      const res = await fetch("http://127.0.0.1:5000/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt: q })
+      });
+      const data = await res.json();
+      document.getElementById("answer").innerText = data.reply || data.error;
+    }
+  </script>
+</body>
+</html>

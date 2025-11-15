@@ -1,0 +1,15 @@
+d = {}
+n = input("Enter a key: ")
+v = input("Enter a value: ")
+d.update({n: v})
+n = input("Enter a key: ")
+v = input("Enter a value: ")
+d.update({n: v})
+n = input("Enter a key: ")
+v = input("Enter a value: ")
+d.update({n: v})
+n = input("Enter a key: ")
+v = input("Enter a value: ")
+d.update({n: v})
+
+print(d)
